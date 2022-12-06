@@ -21,6 +21,8 @@ public partial class Jgho01122022Context : DbContext
 
     public virtual DbSet<Materium> Materia { get; set; }
 
+    public virtual DbSet<Usuario> Usuarios { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=LAPTOP-G3PBMH36; Database= JGHO_01122022; Trusted_Connection=True; TrustServerCertificate=True; User ID=sa; Password=pass@word1;");
@@ -64,6 +66,20 @@ public partial class Jgho01122022Context : DbContext
 
             entity.Property(e => e.Costo).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Usuario>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("Usuario");
+
+            entity.Property(e => e.Password)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.UserName)
                 .HasMaxLength(50)
                 .IsUnicode(false);
         });

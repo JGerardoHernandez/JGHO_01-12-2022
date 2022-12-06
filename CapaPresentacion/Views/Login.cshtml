@@ -1,0 +1,36 @@
+﻿<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<link rel="stylesheet" href="~/css/LoginStyle.css" />
+			@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+			{
+			  <form class="login">
+				
+				<div class="login__field">
+					<input type="text" name="UserName" class="login__input" placeholder="UserName">
+				</div>
+
+				<div class="login__field">
+					<input type="password" name="password"  class="login__input" placeholder="Password">
+				</div>
+
+				<button type="submit" name="submit" class="btn-primary rounded submit p-3 px-5">Iniciar Sesión</button>
+			  </form>
+			}
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram"></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>
+	</div>
+</div>

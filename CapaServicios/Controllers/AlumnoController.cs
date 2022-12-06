@@ -98,5 +98,20 @@ namespace CapaServicios.Controllers
                 return NotFound();
             }
         }
+
+        //[HttpPost]
+        //[Route("GetByUserName/{userName}")] //Nombre de Stored Procedure
+        //public IActionResult Login(string userName)
+        //{
+        //    CapaNegocio.Result result = CapaNegocio.Alumno.GetByUserName(userName);
+        //    if (result.Correct)
+        //    {
+        //        return Ok(result);
+        //    }
+        //    else
+        //    {
+        //        return NotFound();
+        //    }
+        //}
     }
 }

@@ -11,13 +11,13 @@ function SelectMaterias() {
             $.each(result, function (i, materia) {
                 var filas = '<tr>' + '<td class="text-center"> '
                     + '<a href="#" onclick="GetById(' + materia.idMateria + ')">'
-                    + '<img  style="height: 25px; width: 25px;" src="../img/edit.ico" />'
+                    + '<button class="btn btn-warning bi bi-pen-fill"' 
                     + '</a> ' + '</td>' + "<td  id='id' class='text-center'>"
                     + materia.idMateria + "</td>" + "<td class='text-center'>"
                     + materia.nombre + "</td>" + "<td class='text-center'>"
                     + materia.costo + "</ td>"
                     //+ '<td class="text-center">  <a href="#" onclick="return Eliminar(' + subCategoria.IdSubCategoria + ')">' + '<img  style="height: 25px; width: 25px;" src="../img/delete.png" />' + '</a>    </td>'
-                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + materia.idMateria + ')"><span class="glyphicon glyphicon-trash" style="color:#FFFFFF"></span></button></td>'
+                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + materia.idMateria + ')"><i class="bi bi-trash-fill"></i></button></td>'
 
                     + "</tr>";
                 $("#SelectMaterias tbody").append(filas);

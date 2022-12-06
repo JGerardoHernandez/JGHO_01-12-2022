@@ -11,7 +11,7 @@ function SelectAlumnos() {
             $.each(result, function (i, alumno) {
                 var filas = '<tr>' + '<td class="text-center"> '
                     + '<a href="#" onclick="GetById(' + alumno.idAlumno + ')">'
-                    + '<img  style="height: 25px; width: 25px;" src="../img/edit.ico" />'
+                    + '<button class="btn btn-warning bi bi-pen-fill"' 
                     + '</a> ' + '</td>' + "<td  id='id' class='text-center'>"
                     + alumno.idAlumno + "</td>" + "<td class='text-center'>"
                     + alumno.nombre + "</td>" + "<td class='text-center'>"
@@ -19,7 +19,7 @@ function SelectAlumnos() {
                     + alumno.apellidoMaterno + "</td>" + "<td class='text-center'>"
                     + alumno.imagen + "</td>"
                     //+ '<td class="text-center">  <a href="#" onclick="return Eliminar(' + subCategoria.IdSubCategoria + ')">' + '<img  style="height: 25px; width: 25px;" src="../img/delete.png" />' + '</a>    </td>'
-                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + alumno.idAlumno + ')"><span class="glyphicon glyphicon-trash" style="color:#FFFFFF"></span></button></td>'
+                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + alumno.idAlumno + ')"><i class="bi bi-trash-fill"></i></button></td>'
 
                     + "</tr>";
                 $("#SelectAlumnos tbody").append(filas);
