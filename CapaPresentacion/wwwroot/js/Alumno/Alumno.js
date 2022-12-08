@@ -9,10 +9,11 @@ function SelectAlumnos() {
         success: function (result) { //200 OK
             $('#SelectAlumnos tbody').empty();
             $.each(result, function (i, alumno) {
-                var filas = '<tr>' + '<td class="text-center"> '
-                    + '<a href="#" onclick="GetById(' + alumno.idAlumno + ')">'
-                    + '<button class="btn btn-warning bi bi-pen-fill"' 
-                    + '</a> ' + '</td>' + "<td  id='id' class='text-center'>"
+                var filas = '<tr>'
+                    + '<td class="text-center">'
+                    + '<button onclick="GetById(' + alumno.idAlumno + ')" class="btn btn-warning bi bi-pen-fill"> </button>'
+                    + '</td>'
+                    + "<td  id='id'  style='display:none;'>"
                     + alumno.idAlumno + "</td>" + "<td class='text-center'>"
                     + alumno.nombre + "</td>" + "<td class='text-center'>"
                     + alumno.apellidoPaterno + "</ td>" + "<td class='text-center'>"
@@ -26,7 +27,7 @@ function SelectAlumnos() {
             });
         },
         error: function (result) {
-            alert('Error en la consulta.' );
+            alert('Error en la consulta.');
         }
     });
 };
@@ -78,7 +79,6 @@ function Update(alumno) {
         data: JSON.stringify(alumno),
         contentType: 'application/json; charset=utf-8',
         success: function (result) {
-            $('#')
             $('#myModal').modal();
             $('#ModalUpdate').modal('hide');
             SelectAlumnos();
@@ -125,7 +125,7 @@ function Actualizar() {
 
     if (alumno.IdAlumno == '') {
         alumno.IdAlumno = 0,
-        Add(alumno);
+            Add(alumno);
 
     }
     else {
@@ -143,6 +143,7 @@ function IniciarAlumno() {
         imagen: $('#Imagen').val(''),
     }
 }
+
 function validateFile() {
     var allowedExtension = ['png', 'jpg'];
     var fileExtension = document.getElementById('Imagen').value.split('.').pop().toLowerCase();

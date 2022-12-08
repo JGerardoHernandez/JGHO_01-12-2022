@@ -26,6 +26,23 @@ namespace CapaServicios.Controllers
             }
         }
 
+        [EnableCors("API")]
+        [HttpPost]
+        [Route("Add{IdAlumno}")]
+        public IActionResult InsertAlumno(int IdAlumno, [FromBody] int[]materias)
+        {
+            //CapaNegocio.Result result = CapaNegocio.AlumnoMateria.InsertAlumno(alumnoMateria);
+
+            //if (result.Correct)
+            //{
+            return Ok();
+            //}
+            //else
+            //{
+            //    return NotFound();
+            //}
+        }
+
         [HttpGet]
         [Route("GetById{IdAlumno}")]
         //GET api/asignatura/5

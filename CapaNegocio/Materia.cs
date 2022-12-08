@@ -12,14 +12,13 @@ namespace CapaNegocio
         public int IdMateria { get; set; }
         public string? Nombre { get; set; }
         public decimal? Costo { get; set; }
-
         public List<object>? Materias { get; set; }
 
         public static Result SelectMaterias()
         {
             Result result = new Result();
             try
-            {
+            {       
                 using (CapaDatos.Jgho01122022Context context = new CapaDatos.Jgho01122022Context())
                 {
                     var query = context.Materia.FromSqlRaw($"SelectMateria").ToList();
@@ -30,6 +29,7 @@ namespace CapaNegocio
                     {
                         foreach (var obj in query)
                         {
+
                             Materia materia = new Materia();
                             materia.IdMateria = obj.IdMateria;
                             materia.Nombre = obj.Nombre;
@@ -182,5 +182,6 @@ namespace CapaNegocio
 
             return result;
         }
+
     }
 }

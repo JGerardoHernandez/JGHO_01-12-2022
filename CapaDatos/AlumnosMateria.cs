@@ -14,6 +14,7 @@ public partial class AlumnosMateria
     public string? NombreMateria { get; set; }
     public decimal? Costo { get; set; }
 
+
     public virtual Alumno? IdAlumnoNavigation { get; set; }
 
     public virtual Materium? IdMateriaNavigation { get; set; }

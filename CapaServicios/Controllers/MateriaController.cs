@@ -10,7 +10,7 @@ namespace CapaServicios.Controllers
         [EnableCors("API")]
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult SelectAlumnos()
+        public IActionResult SelectMaterias()
         {
             CapaNegocio.Materia materia = new CapaNegocio.Materia();//Instancia de Usuario
 
