@@ -68,6 +68,26 @@ function Eliminar(idMateria, idAlumno) {
     };
 };
 
+function Add(idAlumno, idMateria) {
+    var alumnoMateria = {
+        IdAlumno: idAlumno,
+        IdMateria: idMateria,
+
+    }
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:41245/api/alumnomateria/Add/' + idAlumno + '/' + idMateria,
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (result) {
+            SelectAlumnoMateria();
+        },
+        error: function (result) {
+            alert('Error en la consulta.');
+        }
+    });
+};
+ 
 function ObtenerMateriasNoAsignadasAlumno(idAlumno) {
     $.ajax({
         type: 'GET',
@@ -96,10 +116,17 @@ function ObtenerMateriasNoAsignadasAlumno(idAlumno) {
 };
 
 function ListaMaterias(idAlumno) {
+    var listIdMaterias = new Array(10); // Inicializo mi arreglo 
+    var inputElements = document.getElementById('SelectAlumnoMateria');
+    for (var i = 0; inputElements.childNodes[3].childNodes; ++i) {
+        var result = inputElements.childNodes[3].childNodes[i].childNodes[0].childNodes[0].childNodes[0].checked
+        var idMateria = inputElements.childNodes[3].childNodes[i].childNodes[0].childNodes[0].childNodes[0].value
 
-    var searchIDs = $("#SelectAlumnoMateria input:checkbox:checked").map(function () {
-        return $(this).val();
-    });
-   // AddMateria(idAlumno, searchIDs);
-    /*$.each($("#SelectAlumnoMateria input:checkbox:checked")) {*/
+        if (inputElements.childNodes[3].childNodes[i].childNodes[0].childNodes[0].childNodes[0].checked) {
+            listIdMaterias[i] = idMateria;
+
+            Add(idAlumno, idMateria)
+        }
+
+    }
 };   

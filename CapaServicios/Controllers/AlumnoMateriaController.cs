@@ -28,24 +28,30 @@ namespace CapaServicios.Controllers
 
         [EnableCors("API")]
         [HttpPost]
-        [Route("Add{IdAlumno}")]
-        public IActionResult InsertAlumno(int IdAlumno, [FromBody] int[]materias)
+        [Route("Add/{idAlumno}/{idMateria}")]
+        public IActionResult InsertAlumnoMateria(int idAlumno,int idMateria)
         {
-            //CapaNegocio.Result result = CapaNegocio.AlumnoMateria.InsertAlumno(alumnoMateria);
+            CapaNegocio.AlumnoMateria alumnoMateria = new CapaNegocio.AlumnoMateria();
+            alumnoMateria.Alumno = new CapaNegocio.Alumno();
+            alumnoMateria.Materia = new CapaNegocio.Materia();
 
-            //if (result.Correct)
-            //{
-            return Ok();
-            //}
-            //else
-            //{
-            //    return NotFound();
-            //}
+            alumnoMateria.Alumno.IdAlumno = idAlumno;
+            alumnoMateria.Materia.IdMateria = idMateria;
+            
+            CapaNegocio.Result result = CapaNegocio.AlumnoMateria.InsertAlumnoMateria(alumnoMateria);
+
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
         }
 
         [HttpGet]
         [Route("GetById{IdAlumno}")]
-        //GET api/asignatura/5
         public IActionResult ObtenerMateriasAsignadasAlumno(int IdAlumno)
         {
             CapaNegocio.Result result = CapaNegocio.AlumnoMateria.ObtenerMateriasAsignadasAlumno(IdAlumno);
@@ -62,7 +68,6 @@ namespace CapaServicios.Controllers
 
         [HttpGet]
         [Route("ObtenerMateriasNoAsignadasAlumno{IdAlumno}")]
-        //GET api/asignatura/5
         public IActionResult ObtenerMateriasNoAsignadasAlumno(int IdAlumno)
         {
             CapaNegocio.Result result = CapaNegocio.AlumnoMateria.ObtenerMateriasNoAsignadasAlumno(IdAlumno);

@@ -14,32 +14,32 @@ namespace CapaNegocio
         public CapaNegocio.Materia Materia { get; set; }
         public List<object>? AlumnosMaterias { get; set; }
 
-        //public static Result InsertAlumno(AlumnoMateria alumnoMateria)
-        //{
-        //    Result result = new Result();
-        //    try
-        //    {
-        //        using (CapaDatos.Jgho01122022Context context = new CapaDatos.Jgho01122022Context())
-        //        {
-        //            //EXECUTESQLRAW ADD, UPDATE Y DELETE
-        //            var query = context.Database.ExecuteSqlRaw($"InsertAlumnoMateria '{alumnoMateria.Alumno.IdAlumno}', {alumnoMateria.Materia.IdMateria}");
-        //            if (query > 0)
-        //            {
-        //                result.Correct = true;
-        //            }
-        //            else
-        //            {
-        //                result.Correct = false;
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        result.Correct = true;
-        //        result.Ex = ex;
-        //    }
-        //    return (result);
-        //}
+        public static Result InsertAlumnoMateria(AlumnoMateria alumnoMateria)
+        {
+            Result result = new Result();
+            try
+            {
+                using (CapaDatos.Jgho01122022Context context = new CapaDatos.Jgho01122022Context())
+                {
+                    //EXECUTESQLRAW ADD, UPDATE Y DELETE
+                    var query = context.Database.ExecuteSqlRaw($"InsertAlumnoMateria '{alumnoMateria.Alumno.IdAlumno}', {alumnoMateria.Materia.IdMateria}");
+                    if (query > 0)
+                    {
+                        result.Correct = true;
+                    }
+                    else
+                    {
+                        result.Correct = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.Correct = true;
+                result.Ex = ex;
+            }
+            return (result);
+        }
         public static Result SelectAlumnoMateria()
         {
             Result result = new Result();
