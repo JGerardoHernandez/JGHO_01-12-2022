@@ -12,7 +12,7 @@ function SelectAlumnoMateria() {
                 var filas =
                     '<tr>'
                     + '<td class="text-center"> <button class="btn btn-warning bi bi-pen-fill" onclick="ObtenerMateriasAsignadasAlumno(' + alumno.idAlumno + ')"></button></td>' //Editar Boton
-                    + '</a> ' + '</td>' + "<td id='id' class='d-none'>"
+                    + '</td>' + "<td id='id' class='d-none'>"
                     + alumno.idAlumno + "</td>" + "<td class='text-center'>"
                     + alumno.nombre + " " + alumno.apellidoPaterno + " " + alumno.apellidoMaterno + "</td>"
                     + "</tr>";

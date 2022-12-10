@@ -7,23 +7,20 @@ function SelectAlumnos() {
         type: 'GET',
         url: 'http://localhost:41245/api/alumno/GetAll',
         success: function (result) { //200 OK
-            $('#SelectAlumnos tbody').empty();
+            $('#Alumnos').empty();
             $.each(result, function (i, alumno) {
-                var filas = '<tr>'
-                    + '<td class="text-center">'
-                    + '<button onclick="GetById(' + alumno.idAlumno + ')" class="btn btn-warning bi bi-pen-fill"> </button>'
-                    + '</td>'
-                    + "<td  id='id'  style='display:none;'>"
-                    + alumno.idAlumno + "</td>" + "<td class='text-center'>"
-                    + alumno.nombre + "</td>" + "<td class='text-center'>"
-                    + alumno.apellidoPaterno + "</ td>" + "<td class='text-center'>"
-                    + alumno.apellidoMaterno + "</td>" + "<td class='text-center'>"
-                    + alumno.imagen + "</td>"
-                    //+ '<td class="text-center">  <a href="#" onclick="return Eliminar(' + subCategoria.IdSubCategoria + ')">' + '<img  style="height: 25px; width: 25px;" src="../img/delete.png" />' + '</a>    </td>'
-                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + alumno.idAlumno + ')"><i class="bi bi-trash-fill"></i></button></td>'
-
-                    + "</tr>";
-                $("#SelectAlumnos tbody").append(filas);
+                var filas = 
+                    '<div class="wrapper"> </div>'
+                    + '<div class="clash-card giant"> </div>' 
+                    + '<div class="clash-card__image clash-card__image--giant"> <img src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/giant.png" alt = "giant"/> </div >'
+                    + '< div class="clash-card__level clash-card__level--giant">' + alumno.idAlumno + '</div >'
+                    + '<div class="clash-card__unit-name">' + alumno.nombre + ' ' + alumno.apellidoPaterno + ' ' + alumno.apellidoMaterno + ' ' + '</div>'
+                    + '<div class="clash-card__unit-stats clash-card__unit-stats--giant clearfix"> </div>'
+                    + '<div class="one-third">'
+                    + '<button class="btn btn-primary" onclick="GetById('+alumno.idAlumno+')"> Editar </button> </div>'
+                    + '<div class="one-third">'
+                    + '<button class="btn btn-primary" onclick="Eliminar('+alumno.idAlumno+')"> Eliminar </button> </div>'
+                $("#Alumnos").append(filas);
             });
         },
         error: function (result) {
@@ -43,15 +40,13 @@ function GetById(idAlumno) {
             $('#txtApellidoM').val(result.apellidoMaterno);
             $('#Imagen').val(result.imagen);
 
+            $('#btnGuardar').text('Actualizar')
             $('#ModalUpdate').modal('show');
         },
         error: function (result) {
             alert('Error en la consulta.');
         }
-
-
     });
-
 }
 
 function Add(alumno) {
@@ -91,9 +86,18 @@ function Update(alumno) {
 };
 
 function Modal() {
-    var mostrar = $('#ModalUpdate').modal('show');
     IniciarAlumno();
+    $('#ModalUpdate').modal('show');
+    var test = $('#btnGuardar').text();
+    $('#btnGuardar').text('Agregar')
+}
 
+function IniciarAlumno() {
+        $('#txtIdAlumno').val('')
+        $('#txtNombre').val('')
+        $('#txtApellidoP').val('')
+        $('#txtApellidoM').val('')
+        $('#Imagen').val('')
 }
 
 function Eliminar(idAlumno) {
@@ -114,7 +118,7 @@ function Eliminar(idAlumno) {
     };
 };
 
-function Actualizar() {
+function Guardar() {
     var alumno = {
         IdAlumno: $('#txtIdAlumno').val(),
         Nombre: $('#txtNombre').val(),
@@ -130,17 +134,6 @@ function Actualizar() {
     }
     else {
         Update(alumno);
-    }
-}
-
-function IniciarAlumno() {
-
-    var alumno = {
-        idAlumno: $('#txtIdAlumno').val(''),
-        nombre: $('#txtNombre').val(''),
-        apellidoPaterno: $('#txtApellidoP').val(''),
-        apellidoMaterno: $('#txtApellidoM').val(''),
-        imagen: $('#Imagen').val(''),
     }
 }
 

@@ -9,8 +9,8 @@ function SelectMaterias() {
         success: function (result) { //200 OK
             $('#SelectMaterias tbody').empty();
             $.each(result, function (i, materia) {
-                var filas = '<tr>'
-
+                var filas =
+                    '<tr>'
                     + '<td class="text-center"> '
                     + '<button onclick="GetById(' + materia.idMateria + ')" class="btn btn-warning bi bi-pen-fill"> </button>'
                     + '</td>'
@@ -40,7 +40,9 @@ function GetById(idMateria) {
             $('#txtNombre').val(result.nombre);
             $('#Costo').val(result.costo);
 
+            $('#btnGuardar').text('Actualizar')
             $('#ModalUpdate').modal('show');
+
         },
         error: function (result) {
             alert('Error en la consulta.');
@@ -85,9 +87,18 @@ function Update(materia) {
 };
 
 function Modal() {
-    var mostrar = $('#ModalUpdate').modal('show');
     IniciarMateria();
+    $('#ModalUpdate').modal('show');
+    var test = $('#btnGuardar').text();
+    $('#btnGuardar').text('Agregar')
+}
 
+function IniciarMateria() {
+    var materia = {
+        idMateria: $('#txtIdMateria').val(''),
+        nombre: $('#txtNombre').val(''),
+        costo: $('#Costo').val(''),
+    }
 }
 
 function Eliminar(idMateria) {
@@ -108,7 +119,7 @@ function Eliminar(idMateria) {
     };
 };
 
-function Actualizar() {
+function Guardar() {
     var materia = {
         IdMateria: $('#txtIdMateria').val(),
         Nombre: $('#txtNombre').val(),
@@ -125,11 +136,3 @@ function Actualizar() {
     }
 }
 
-function IniciarMateria() {
-
-    var materia = {
-        idMateria: $('#txtIdMateria').val(''),
-        nombre: $('#txtNombre').val(''),
-        costo: $('#Costo').val(''),
-    }
-}

@@ -12,6 +12,7 @@ public partial class Materium
     public decimal? Costo { get; set; }
 
     public int IdAlumnoMateria { get; set; }
+
     public int IdAlumno { get; set; }
     public virtual ICollection<AlumnosMateria> AlumnosMateria { get; } = new List<AlumnosMateria>();
 }

@@ -153,6 +153,7 @@ namespace CapaNegocio
             }
             return (result);
         }
+
         public static Result EliminarAlumno(Alumno alumno)
         {
             Result result = new Result();
