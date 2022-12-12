@@ -12,8 +12,8 @@ function SelectAlumnos() {
                 var filas = 
                     '<div class="wrapper"> </div>'
                     + '<div class="clash-card giant"> </div>' 
-                    + '<div class="clash-card__image clash-card__image--giant"> <img src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/giant.png" alt = "giant"/> </div >'
-                    + '< div class="clash-card__level clash-card__level--giant">' + alumno.idAlumno + '</div >'
+                    + '<div class="clash-card__image clash-card__image--giant"> <img src = "/imagess/usuario-icono.png" alt = "giant"/> </div >'
+                    + '<div class="clash-card__level clash-card__level--giant">' + alumno.idAlumno + '</div>'
                     + '<div class="clash-card__unit-name">' + alumno.nombre + ' ' + alumno.apellidoPaterno + ' ' + alumno.apellidoMaterno + ' ' + '</div>'
                     + '<div class="clash-card__unit-stats clash-card__unit-stats--giant clearfix"> </div>'
                     + '<div class="one-third">'
