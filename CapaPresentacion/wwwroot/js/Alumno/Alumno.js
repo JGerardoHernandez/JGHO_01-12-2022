@@ -12,14 +12,14 @@ function SelectAlumnos() {
                 var filas = 
                     '<div class="wrapper"> </div>'
                     + '<div class="clash-card giant"> </div>' 
-                    + '<div class="clash-card__image clash-card__image--giant"> <img src = "/imagess/usuario-icono.png" alt = "giant"/> </div >'
+                    + '<img src = "/imagess/usuario-icono.png" alt = "giant"/> </div >'
                     + '<div class="clash-card__level clash-card__level--giant">' + alumno.idAlumno + '</div>'
                     + '<div class="clash-card__unit-name">' + alumno.nombre + ' ' + alumno.apellidoPaterno + ' ' + alumno.apellidoMaterno + ' ' + '</div>'
-                    + '<div class="clash-card__unit-stats clash-card__unit-stats--giant clearfix"> </div>'
-                    + '<div class="one-third">'
+                    + '<div class="center">'
                     + '<button class="btn btn-primary" onclick="GetById('+alumno.idAlumno+')"> Editar </button> </div>'
-                    + '<div class="one-third">'
+                    + '<div class="center">'
                     + '<button class="btn btn-primary" onclick="Eliminar('+alumno.idAlumno+')"> Eliminar </button> </div>'
+
                 $("#Alumnos").append(filas);
             });
         },

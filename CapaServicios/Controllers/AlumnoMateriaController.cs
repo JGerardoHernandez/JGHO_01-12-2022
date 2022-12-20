@@ -85,10 +85,10 @@ namespace CapaServicios.Controllers
         [HttpGet]
         [Route("Delete{IdAlumno}/{IdMateria}")]
         //GET api/asignatura/5
-        public IActionResult EliminarAlumnoMateria(int IdAlumno, int IdMateria)
+        public IActionResult EliminarAlumnoMateria(int IdMateria, int IdAlumno)
         {
 
-            CapaNegocio.Result result = CapaNegocio.AlumnoMateria.EliminarAlumnoMateria(IdAlumno, IdMateria);
+            CapaNegocio.Result result = CapaNegocio.AlumnoMateria.EliminarAlumnoMateria(IdMateria, IdAlumno);
 
             if (result.Correct)
             {

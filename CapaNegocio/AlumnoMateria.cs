@@ -133,7 +133,7 @@ namespace CapaNegocio
 
             return result;
         }
-        public static Result EliminarAlumnoMateria(int IdAlumno, int IdMateria)
+        public static Result EliminarAlumnoMateria(int IdMateria, int IdAlumno)
         {
             Result result = new Result();
 
@@ -141,7 +141,7 @@ namespace CapaNegocio
             {
                 using (CapaDatos.Jgho01122022Context context = new CapaDatos.Jgho01122022Context())
                 {
-                    var query = context.Database.ExecuteSqlRaw($"EliminarAlumnoMateria {IdAlumno}, {IdMateria}");
+                    var query = context.Database.ExecuteSqlRaw($"EliminarAlumnoMateria {IdMateria}, {IdAlumno}");
                     if (query >= 1)
                     {
                         result.Correct = true;
@@ -180,10 +180,10 @@ namespace CapaNegocio
                         foreach (var obj in query)
                         {
                             AlumnoMateria alumnomateria = new AlumnoMateria();
-                            alumnomateria.IdAlumnoMateria = obj.IdAlumnoMateria;
+                            //alumnomateria.IdAlumnoMateria = obj.IdAlumnoMateria;
 
                             alumnomateria.Alumno = new Alumno();
-                            alumnomateria.Alumno.IdAlumno = obj.IdAlumno;
+                           // alumnomateria.Alumno.IdAlumno = obj.IdAlumno;
 
                             alumnomateria.Materia = new Materia();
                             alumnomateria.Materia.IdMateria = obj.IdMateria;

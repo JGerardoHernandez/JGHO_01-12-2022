@@ -6,11 +6,8 @@ namespace CapaDatos;
 public partial class AlumnosMateria
 {
     public int IdAlumnoMateria { get; set; }
-
     public int? IdAlumno { get; set; }
-
     public int? IdMateria { get; set; }
-
     public string? NombreMateria { get; set; }
     public decimal? Costo { get; set; }
 

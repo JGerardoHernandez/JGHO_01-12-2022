@@ -60,6 +60,7 @@ function Eliminar(idMateria, idAlumno) {
             url: 'http://localhost:41245/api/alumnomateria/Delete' + idMateria + '/' + idAlumno,
             success: function (result) {
                 $('#myModal').modal();
+                SelectAlumnoMateria();
             },
             error: function (result) {
                 alert('Error en la consulta.');
@@ -127,6 +128,5 @@ function ListaMaterias(idAlumno) {
 
             Add(idAlumno, idMateria)
         }
-
     }
 };   
